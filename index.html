@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/style.css">
+    <title>Katalog proizvoda</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📦 Katalog proizvoda</h1>
+            <p class="subtitle">Upravljanje proizvodima i kategorijama</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active">Proizvodi</button>
+            <button class="tab-btn">Kategorije</button>
+        </nav>
+
+        <!-- tab Proizvodi -->
+         <div id="tab-proizvodi">
+            <div class="action-bar">
+                <button class="btn btn-primary" id="btnNoviProizvod">
+                    ➕ Novi proizvod
+                </button>
+                <div>
+                    <input type="text" placeholder="🔍 Pretraži proizvode..." id="pretraziProizvode">
+                </div>
+            </div>
+
+            <!-- forma za create/edit proizvoda-->
+             <div class="form-container" id="formaProizvod">
+                <div>
+                    <h2 id="formaProizvodNaziv">Novi proizvod</h2>
+                    <button class="btn btn-close" id="btnZatvoriProizvod">✕</button>
+                </div>
+
+                <form id="proizvodForm">
+                    <div>
+                        <div>
+                            <label for="proizvodNaziv">Naziv *</label>
+                            <input type="text" id="proizvodNaziv" required>
+                            <span class="error-msg" id="errorNaziv"></span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <label for="proizvodSifra">Šifra</label>
+                            <input type="text" id="proizvodSifra" disabled>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <label for="proizvodKolicina">Količina *</label>
+                            <input type="number" id="proizvodKolicina" min="1" required>
+                            <span class="error-msg" id="errorKolicina"></span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <label for="proizvodCijena">Cijena € *</label>
+                            <input type="number" id="proizvodCijena" step="0.1" min="1" required>
+                            <span class="error-msg" id="errorCijena"></span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <label for="proizvodKategorija">Kategorija *</label>
+                            <select id="proizvodKategorija" required>
+                                <option value="">--Odaberite --</option>
+                                <option value="nova">➕ Nova kategorija</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <label for="proizvodOcjena">Ocjena (1-5)</label>
+                            <input type="number" id="proizvodOcjena" step="0.1" min="1" max="5">
+                            <div id="starDisplay"></div>
+                        </div>
+                    </div>                
+
+                    <!-- Nova Kategorija - prikaže se kad se iz dropdowna odabere Nova kategorija -->
+                    <div id="novaKategorijaContainer">
+                        <div>
+                            <h3>Nova kategorija</h3>
+                            <div>
+                                <label for="novaKategorijaNaziv">Naziv kategorije *</label>
+                                <input type="text" id="novaKategorijaNaziv" required>
+                                <span class="error-msg" id="errornovaKategorijaNaziv"></span>
+                            </div>
+                            <div>
+                                <label for="novaKategorijaOpis">Opis</label>
+                                <textarea id="novaKategorijaOpis" rows="2"></textarea>>
+                            </div>
+                        </div>
+                    </div>    
+
+                    <div>
+                        <!-- Jan mi je rekao da gumbima dam ovakav class(primary/secondary) ako ih reusam -->
+                        <button class="btn btn-secondary" type="button" id="btnOdustaniProizvod">Odustani</button>
+                        <button class="btn btn-primary" type="submit">💾 Spremi</button>
+                    </div>
+                </form>
+            </div>             
+
+             <!-- lista Proizvoda -->
+              <div class="proizvodi-grid" id="listaProizvoda">
+                <!-- tu će se prikazivati novi proizvod -->
+              </div>
+        </div>
+
+        <!-- tab Kategorije -->
+         <div id="tab-kategorije">
+            <div class="action-bar">
+                <button class="btn btn-primary" id="btnNovaKategorija">
+                    ➕ Nova kategorija                    
+                </button>
+            </div>
+
+            <!-- forma za create/edit kategorije -->
+             <div class="form-container" id="formaKategorija">
+                <div>
+                    <h2 id="formaKategorijaNaziv">Nova kategorija</h2>
+                    <button class="btn btn-close" id="btnZatvoriKategoriju">✕</button>
+                </div>
+                <form>
+                    <div>
+                        <label for="kategorijaNaziv">Naziv *</label>
+                        <input type="text" id="kategorijaNaziv" required>
+                        <span class="error-msg" id="errorKategorijaNaziv"></span>
+                    </div>
+    
+                    <div>
+                        <label for="kategorijaOpis">Opis</label>
+                        <textarea id="kategorijaOpis" rows="3"></textarea>
+                    </div>
+    
+                    <div>
+                        <button class="btn btn-secondary" type="button" id="btnKategorijaOdustani">Odustani</button>
+                        <button class="btn btn-primary" type="submit">💾 Spremi</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- lista Kategorija -->
+            <div>
+                <table id="tabelaKategorija">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAZIV</th>
+                            <th>OPIS</th>
+                            <th>AKCIJE</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaKategorija">
+                        <!-- tu će se prikazivati nova Kategorija -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    <script src="Scripts/app.js"></script>
+</body>
+</html>
