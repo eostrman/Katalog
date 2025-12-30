@@ -96,6 +96,14 @@ form > div:last-child {
     display: none;
 }
 
+#formaProizvod {
+    display: none;
+}
+
+#formaKategorija {
+    display: none;
+}
+
 /* GUMBI */
 
 .btn {
