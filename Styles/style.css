@@ -1,0 +1,171 @@
+/* MARGIN = razmak IZVAN elementa (između elemenata) */
+/* PADDING = razmak UNUTAR elementa (oko sadržaja) */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary: #64748b;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+
+    --background: #f8fafc;
+    --background-hover-primary: #1d4ed8;
+    --background-hover-secondary: #f1f5f9;
+    --background-card: #ffffff;
+
+    --border: #e2e8f0;
+
+    --radius: 8px;
+}
+
+body {
+    background: var(--background);
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.container {
+    background: var(--background);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.subtitle {
+    text-align: center;
+}
+
+header {
+    text-align: center;
+    margin: 30px;
+}
+
+.tabs {
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    
+}
+
+.action-bar {
+    display: flex;
+    justify-content: space-between;   
+    margin-bottom: 20px;   
+}
+
+.action-bar input {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px;
+    width: 300px;
+}
+
+.form-container {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form-container > :first-child {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+form > div:last-child {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.proizvodi-grid {
+    display: grid;
+    grid-template-columns: 1fr, 1fr, 1fr;
+    gap: 20px;
+}
+
+#tab-kategorije {
+    display: none;
+}
+
+/* GUMBI */
+
+.btn {
+    align-items: center;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    display: inline-flex;
+    font-weight: 500;
+    padding: 10px 20px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--background-hover-primary);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+
+.btn.btn-secondary:hover {
+    background-color: var(--background-hover-secondary);
+    border: var(--border);
+}
+
+.btn-close {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-close:hover {
+    background: #dc2626;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--text-secondary);
+    cursor: pointer;    
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: -2px;
+    padding: 12px 24px;
+}
+
+.tab-btn.active {    
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+/* TABLICA */
+
+table {
+    width: 100%;
+}
+
+thead {
+    background: #f3f4f6;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
